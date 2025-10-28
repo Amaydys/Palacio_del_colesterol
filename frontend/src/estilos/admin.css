@@ -1,0 +1,18 @@
+/* Hace que la página ocupe toda la altura de la ventana */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-space {
+  flex: 1;
+  background-color: white;
+}

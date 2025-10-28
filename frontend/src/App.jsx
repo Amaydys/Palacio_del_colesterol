@@ -1,17 +1,21 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Tienda from './componentes/Tienda';
-import 'uikit/dist/css/uikit.min.css';
-import Empanadas from './pages/Empanadas';
-import Hamburguesa from './pages/Hamburguesa';
-import Papas from './pages/Papas';
-import Pasteles from './pages/Pasteles';
-import Caliente from './pages/Caliente';
-import Picada  from './pages/Picada';
-import Pollo  from './pages/Pollo';
-import Relleno  from './pages/Relleno';
-import Inicio from './componentes/Inicio';
-import Login from './componentes/login'
-import Register from './componentes/register';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Tienda from "./componentes/Tienda";
+import "uikit/dist/css/uikit.min.css";
+import Empanadas from "./pages/Empanadas";
+import Hamburguesa from "./pages/Hamburguesa";
+import Papas from "./pages/Papas";
+import Pasteles from "./pages/Pasteles";
+import Caliente from "./pages/Caliente";
+import Picada from "./pages/Picada";
+import Pollo from "./pages/Pollo";
+import Relleno from "./pages/Relleno";
+import Inicio from "./componentes/Inicio";
+import Login from "./componentes/login";
+import Register from "./componentes/register";
+import Navbar from "./componentes/Navbar";
+import Admin from "./componentes/Admin";
+import AddProduct from "./pages/AddProduct";
+
 function App() {
   return (
     <Routes>
@@ -27,6 +31,9 @@ function App() {
       <Route path="/pollo" element={<Pollo />} />
       <Route path="/relleno" element={<Relleno />} />
       <Route path="/tienda" element={<Tienda />} />
+      <Route path="/Navbar" element={<Navbar />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/add-product" element={<AddProduct />} />
     </Routes>
   );
 }

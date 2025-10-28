@@ -44,7 +44,7 @@ export const register = async (req, res) => {
     });
 
     // Guardar token en cookie
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("token", token, { httpOnly: true, sameSite: "lax" });
 
     // Respuesta con datos del usuario
     res.status(201).json({

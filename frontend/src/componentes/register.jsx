@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../componentes/Footer";
-import Header from "../componentes/Header";
-import { registerRequest } from "../api/Auth"; // ✅ Importamos la función
+import Footer from "./Footer";
+import Header from "./Header";
+import { registerRequest } from "../api/Auth";
 
 function Register() {
   const [form, setForm] = useState({

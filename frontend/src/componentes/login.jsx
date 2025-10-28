@@ -2,53 +2,32 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "../componentes/Footer";
-import { loginRequest } from "../api/Auth"; // función centralizada de login
-
+import { useAuth } from "../context/AuthContext";
 function Login() {
   const navigate = useNavigate();
+  const { signin } = useAuth();
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setError(null);
     try {
-      const res = await loginRequest(form);
-
-      if (res.data && res.data.email) {
-        // ✅ Guardamos el token y el rol en localStorage
-        if (res.data.token) {
-          localStorage.setItem("token", res.data.token);
-        }
-        if (res.data.rol) {
-          localStorage.setItem("rol", res.data.rol);
-        }
-
-        alert("✅ Inicio de sesión exitoso");
-        console.log("Usuario logueado:", res.data);
-
-        // ✅ Redirección según el rol
-        if (res.data.rol === "admin") {
-          navigate("/productos"); // ruta para administrador
-        } else {
-          navigate("/perfil"); // ruta para usuario normal
-        }
-      } else {
-        alert("⚠️ Error al iniciar sesión. Verifica tus datos.");
-      }
-    } catch (error) {
-      console.error("Error en el login:", error);
-      if (error.response) {
-        alert("❌ " + error.response.data.message);
-      } else {
-        alert("❌ No se pudo conectar con el servidor");
-      }
+      const user = await signin(form); // espera a que el contexto actualice el estado
+      // user puede venir como retorno de signin o usar el estado desde useAuth
+      const role = user?.rol ?? window.localStorage.getItem("rol") ?? null;
+      alert("✅ Inicio de sesión exitoso");
+      if (role === "admin") navigate("/admin");
+      else navigate("/perfil");
+    } catch (err) {
+      console.error("Error en el login:", err);
+      setError(err.response?.data?.message || "No se pudo iniciar sesión");
     }
   };
 
@@ -92,6 +71,16 @@ function Login() {
                 onChange={handleChange}
               />
             </div>
+            {error && (
+              <div
+                className="uk-alert-danger uk-text-center"
+                uk-alert="true"
+                style={{ padding: "10px", borderRadius: "8px" }}
+              >
+                <p>{error}</p>
+              </div>
+            )}
+
             <div className="uk-margin">
               <button className="uk-button uk-button-primary uk-width-1-1">
                 Iniciar Sesión
