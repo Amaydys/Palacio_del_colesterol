@@ -1,0 +1,99 @@
+/* Fondo principal */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffdf6; /* Fondo crema claro */
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+}
+
+/* Tarjeta del formulario */
+.form-producto {
+  background-color: #ffffff;
+  color: #534545;
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 3px solid #4b363a; /* Rojo vibrante */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Título del formulario */
+.form-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #e63946; /* Rojo principal */
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Campos de texto */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ffd166; /* Amarillo suave */
+  border-radius: 10px;
+  margin-top: 5px;
+  font-size: 1rem;
+  background-color: #fffaf0;
+  color: #000;
+  transition: 0.2s ease;
+}
+
+/* Efecto de enfoque */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #474041;
+  box-shadow: 0 0 8px rgba(230, 57, 70, 0.4);
+}
+
+/* Botón principal */
+.btn-guardar {
+  width: 100%;
+  margin-top: 1.8rem;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #e63946; /* Rojo atractivo */
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-guardar:hover {
+  background-color: #444040;
+  transform: scale(1.03);
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+  text-align: center;
+  color: #2d6a4f;
+  background-color: #d8f3dc;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #74c69d;
+}

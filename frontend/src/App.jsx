@@ -15,6 +15,8 @@ import Register from "./componentes/register";
 import Navbar from "./componentes/Navbar";
 import Admin from "./componentes/Admin";
 import AddProduct from "./pages/AddProduct";
+import ProductList from "./componentes/ProductList";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -33,7 +35,12 @@ function App() {
       <Route path="/tienda" element={<Tienda />} />
       <Route path="/Navbar" element={<Navbar />} />
       <Route path="/admin" element={<Admin />} />
+
       <Route path="/add-product" element={<AddProduct />} />
+
+      <Route path="/view-products" element={<AddProduct />} />
+      <Route path="/product-list" element={<ProductList />} />
+      <Route path="/products/:id" element={<EditProduct />} />
     </Routes>
   );
 }

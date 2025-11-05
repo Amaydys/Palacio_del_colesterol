@@ -9,13 +9,11 @@ export default function Navbar() {
   const navigate = useNavigate();
   console.log("Navbar auth:", { isAuthenticated, user });
 
-  if (loading) return null; // evita parpadeo hasta confirmar sesión
+  if (loading) return null;
   const handleLogout = async () => {
     try {
-      await logout(); // espera si logout hace peticiones
-    } catch (e) {
-      // opcional: manejar error
-    }
+      await logout();
+    } catch (e) {}
     navigate("/"); // redirige al inicio después de cerrar sesión
   };
   return (
@@ -53,7 +51,7 @@ export default function Navbar() {
                 {user?.rol === "admin" && (
                   <li>
                     <Link
-                      to="/"
+                      to="/product-list"
                       className="hover:text-indigo-400 transition-colors"
                     >
                       Ver Productos

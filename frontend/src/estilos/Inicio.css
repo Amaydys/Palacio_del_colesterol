@@ -1,11 +1,12 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-header, footer {
+header,
+footer {
   padding: 20px;
 }
 
@@ -39,14 +40,16 @@ header, footer {
   margin-top: 15px;
 }
 
-.features, .info-cards {
+.features,
+.info-cards {
   display: flex;
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
 }
 
-.features div, .info-cards div {
+.features div,
+.info-cards div {
   background-color: #4caf50;
   border-radius: 20px;
   padding: 20px;
@@ -54,7 +57,8 @@ header, footer {
   max-width: 200px;
 }
 
-.features img, .info-cards img {
+.features img,
+.info-cards img {
   border-radius: 15px;
   width: 100%;
 }
